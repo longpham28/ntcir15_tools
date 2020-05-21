@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: ntcir15-tools-longpham
+Version: 0.0.1
+Summary: Tools package for ntcir15-datasearch
+Home-page: UNKNOWN
+Author: longpham
+Author-email: huulongpham28@gmail.com
+License: UNKNOWN
+Description: # NTCIR15 TOOLS
+        
+        This package contains tools for NTCIR15 data search task
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
