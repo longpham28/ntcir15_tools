@@ -93,7 +93,7 @@ from ntcir15_tools.baselines import get_baseline_reult
 
 bm25_ja_result = get_baseline_result("bm25", "ja")
 
-scores = evaluate(bm25_ja_result, n=5)
+scores = evaluate(bm25_ja_result["train"], n=5)
 
 ```
 
