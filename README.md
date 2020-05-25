@@ -29,7 +29,7 @@ print(baselines)
 
 #### Baseline's result
 
-You can get specified baseline's result with ntcir15_tools.baselines.get_baselines_result
+You can get specified baseline's result with the ntcir15_tools.baselines.get_baselines_result function
 
 Algorithm's name and language are required
 
