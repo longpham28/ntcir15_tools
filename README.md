@@ -14,6 +14,37 @@ pip install .
 
 ## How to use
 
+### Baselines
+
+#### Available balines
+
+```python
+from ntcir15_tools.baselines import get_baselines_list
+
+baselines = get_baselines_list()
+
+print(baselines)
+# ['sdm+qld', 'bm25prf+bm25', 'qld', 'bm25', 'rm3+bm25', 'sdm+bm25', 'rm3+qld', 'bm2']
+```
+
+#### Baseline's result
+
+You can get specified baseline's result with ntcir15_tools.baselines.get_baselines_result
+
+Algorithm's name and language are required
+
+Result for both train data and test data are available
+
+```python
+from ntcir15_tools.baselines import get_baselines_result
+
+bm25_ja_result = get_baselines_result(name="bm25", lang="ja") # language must be either "ja" or "en"
+
+bm25_ja_train_result = bm25_result["train"]
+
+bm25_ja_test_result = bm25_result["test"]
+```
+
 ### Evaluating
 
 The __evaluate__ function accepts either dict or list as input
@@ -55,6 +86,18 @@ print(result)
 # {'DS1-J-0001': 0.4, 'DS1-J-0002': 1.0}
 ```
 
+You can also try evaluating baseline's result
+
+```python
+from ntcir15_tools.baselines import get_baseline_reult
+
+bm25_ja_result = get_baseline_result("bm25", "ja")
+
+scores = evaluate(bm25_ja_result, n=5)
+
+```
+
+
 #### q_measure
 
 ```python
@@ -86,7 +129,7 @@ ranked_list = [
     ["DS1-J-0002", "000006875280"],
 ]
 
-result = evaluate(ranked_list, beta=1, n=5)
+result = evaluate(ranked_list, n=5, beta=1)
 ```
 
 ### Save result as file
