@@ -4268,6 +4268,10 @@ ng_queries = ["DS1-J-0007",
 "DS1-E-0023",
 "DS1-E-0035",
 "DS1-E-0059",
+"DS1-E-0022",
+"DS1-E-0023",
+"DS1-E-0035",
+"DS1-E-0059"
 ]
 
 baselines = ['sdm+qld', 'bm25prf+bm25', 'qld', 'bm25', 'rm3+bm25', 'sdm+bm25', 'rm3+qld', 'bm2']

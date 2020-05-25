@@ -36,9 +36,9 @@ Algorithm's name and language are required
 Result for both train data and test data are available
 
 ```python
-from ntcir15_tools.baselines import get_baselines_result
+from ntcir15_tools.baselines import get_baseline_result
 
-bm25_ja_result = get_baselines_result(name="bm25", lang="ja") # language must be either "ja" or "en"
+bm25_ja_result = get_baseline_result(name="bm25", lang="ja") # language must be either "ja" or "en"
 
 bm25_ja_train_result = bm25_result["train"]
 
