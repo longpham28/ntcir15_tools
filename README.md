@@ -96,7 +96,7 @@ bm25_ja_result = get_baseline_result("bm25", "ja")
 scores = evaluate(bm25_ja_result["train"], n=5)
 
 ```
-
+Note that evaluation is only available for train data
 
 #### q_measure
 
