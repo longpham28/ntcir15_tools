@@ -1,5 +1,7 @@
 import setuptools
-
+package_data = {
+    "": ["baselines/baselines.pbz2"]
+}
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
@@ -18,5 +20,6 @@ setuptools.setup(
         "Operating System :: OS Independent"
     ],
     python_requires=">=3.6",
-    install_requires=["pyNTCIREVAL", "numpy"]
+    install_requires=["pyNTCIREVAL", "numpy"],
+    package_data=package_data
 )
