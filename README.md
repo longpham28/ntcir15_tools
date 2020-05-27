@@ -175,7 +175,7 @@ save(lang="J", data=ranked_dict, algorithm="BERT", priority="1")
 ### Get queries
 
 ```python
-from ntcir15_tools.data.queries import ja_queries, en_queries
+from ntcir15_tools.data import ja_queries, en_queries
 
 ja_train_queries = ja_queries["train"]
 ja_test_queries = ja_queries["test"]
@@ -183,4 +183,10 @@ ja_test_queries = ja_queries["test"]
 en_train_queries = en_queries["train"]
 en_test_queries = en_queries["test"]
 
+```
+
+### Get available docs
+
+```python
+from ntcir15_tools.data import ja_docs, en_docs
 ```

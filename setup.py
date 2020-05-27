@@ -1,6 +1,6 @@
 import setuptools
 package_data = {
-    "": ["baselines/baselines.pbz2"]
+    "": ["baselines/baselines.pbz2", "data/en_docs.pbz2", "data/ja_docs.pbz2"]
 }
 with open("README.md", "r") as fh:
     long_description = fh.read()

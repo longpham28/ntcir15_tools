@@ -1,1 +1,3 @@
 include ntcir15_tools/baselines/baselines.pbz2
+include ntcir15_tools/data/en_docs.pbz2
+include ntcir15_tools/data/ja_docs.pbz2
