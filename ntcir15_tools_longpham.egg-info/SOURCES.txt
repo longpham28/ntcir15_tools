@@ -3,8 +3,11 @@ README.md
 setup.py
 ntcir15_tools/__init__.py
 ntcir15_tools/baselines/__init__.py
-ntcir15_tools/baselines/baselines.pkl
+ntcir15_tools/baselines/baselines.pbz2
 ntcir15_tools/data/__init__.py
+ntcir15_tools/data/en_docs.pbz2
+ntcir15_tools/data/ja_docs.pbz2
+ntcir15_tools/data/queries/__init__.py
 ntcir15_tools/eval/__init__.py
 ntcir15_tools/eval/ms_ndcg/__init__.py
 ntcir15_tools/eval/q_measure/__init__.py

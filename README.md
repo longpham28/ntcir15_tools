@@ -89,7 +89,7 @@ print(result)
 You can also try evaluating baseline's result
 
 ```python
-from ntcir15_tools.baselines import get_baseline_reult
+from ntcir15_tools.baselines import get_baseline_result
 
 bm25_ja_result = get_baseline_result("bm25", "ja")
 

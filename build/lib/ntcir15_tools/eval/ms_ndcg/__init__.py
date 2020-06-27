@@ -3,13 +3,21 @@ from pyNTCIREVAL import Labeler
 from pyNTCIREVAL.metrics import MSnDCG
 from collections import defaultdict
 import numpy as np
+from ntcir15_tools.data import ng_queries
 
 
-def get_MSnDCG_by_query_id(query_id, ranked_list, n):
+def get_MSnDCG_by_query_id(query_id, ranked_list, n, limited=True):
     assert len(ranked_list) > 0, "empty list"
     assert n >= 1, "not valid n"
-
+    if len(ranked_list[0]) > 1:
+        ranked_list = [item[0] for item in ranked_list]
     qrels = get_qrels(query_id)
+    if limited:
+        ranked_list = [doc_id for doc_id in ranked_list if doc_id in qrels]
+    else:
+        for doc_id in ranked_list:
+            if not doc_id in qrels:
+                qrels[doc_id] = 0
     labeler = Labeler(qrels)
     grades = [1, 2]
     rel_level_num = 3
@@ -21,26 +29,30 @@ def get_MSnDCG_by_query_id(query_id, ranked_list, n):
     return result
 
 
-def evaluate_by_dict(data, n):
+def evaluate_by_dict(data, n, limited=True):
     result = {}
     for query_id, ranked_list in data.items():
-        result[query_id] = get_MSnDCG_by_query_id(query_id, ranked_list, n)
+        if query_id in ng_queries:
+            continue
+        result[query_id] = get_MSnDCG_by_query_id(query_id, ranked_list, n,limited)
     return result
 
 
-def evaluate_by_list(data, n):
+def evaluate_by_list(data, n, limited=True):
     dic = defaultdict(list)
     data = np.array(data)
     query_ids = np.unique(data[:, 0])
     for query_id, col_id in data:
+        if query_id in ng_queries:
+            continue
         dic[query_id].append(col_id)
-    return evaluate_by_dict(dic, n)
+    return evaluate_by_dict(dic, n,limited)
 
 
-def evaluate(data, n):
+def evaluate(data, n, limited=True):
     assert isinstance(data, dict) or isinstance(
         data, list) or isinstance(data, np.ndarray), "Not valid input"
     if isinstance(data, dict):
-        return evaluate_by_dict(data, n)
+        return evaluate_by_dict(data, n,limited)
     if isinstance(data, list) or isinstance(data, np.ndarray):
-        return evaluate_by_list(data, n)
+        return evaluate_by_list(data, n,limited)
